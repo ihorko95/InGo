@@ -435,7 +435,7 @@ body {
 
 .card-item:nth-child(2) .card-item__title {
   background-color: #dfa355;
-}  
+}
 
 .card-item:nth-child(2) .card-item__btn a {
   color: #dfa355;
@@ -661,7 +661,7 @@ body {
   width: 1400px;
   height: 500px;
   position: absolute;
-  top: 70%;
+  top: 63%;
   z-index: 0;
   -webkit-transform: rotate(-15deg);
           transform: rotate(-15deg);
@@ -739,6 +739,7 @@ body {
 .talents-card .content .talents-description {
   text-align: start;
   color: #fbfbfb;
+  line-height: 1.5em;
   margin-top: 20px;
   font-size: 12pt;
 }

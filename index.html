@@ -332,11 +332,41 @@
     $('.arrow-next').click(function(e){
       $('.sl').slick('slickNext');
     });
+
+
+
+    window.addEventListener('scroll', function(e) {
     
+    let s = this.scrollY;
+    let w = this.outerWidth;
+
+      if((w<500 && s>4000)||(w>=500 && s>1536)){
+          $('.talents-count').each(function(){
+            $(this).prop('Counter',0).animate({
+              Counter: $(this).text()
+              },{
+              duration:4000,
+              easing:'swing',
+              step: function(now){
+                $(this).text(Math.ceil(now));
+              }
+            });
+          });
+      } 
+    });
 
 
-
+  
   });
+  
+
+
+
+
+
+
+
+
 function ibg(){
   let ibg=document.querySelectorAll(".ibg");
   for (var i = 0; i < ibg.length; i++) {
