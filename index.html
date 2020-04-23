@@ -143,54 +143,43 @@
             <div class="place-item__bg"></div>
             <div class="place-item__main-block">
               <div class="content">
-                <div class="date"> aug, 22, 2019</div>
-                <div class="title">alaska</div>
-                <div class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-                <div class="btn">
-                  <a href="#">read more</a> 
+                <div class="sl">
+                  <div>
+                    <div class="date"> aug, 22, 2019</div>
+                    <div class="title">alaska</div>
+                    <div class="sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                    <div class="btn">
+                      <a href="#">read more</a> 
+                    </div>
+                  </div>
+                  <div>
+                    <div class="date"> mar, 04, 2020</div>
+                    <div class="title">europe</div>
+                    <div class="sub-title">That was the best trip ever.</div>
+                    <div class="btn">
+                      <a href="#">read more</a> 
+                    </div>
+                  </div>
+                  <div>
+                    <div class="date"> apr, 27, 2020</div>
+                    <div class="title">dominikana</div>
+                    <div class="sub-title">That was the best trip ever.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                    <div class="btn">
+                      <a href="#">read more</a> 
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="arrows">
-                <div class="arrow-prew">←</div>
-                <div class="arrow-next">→</div>
-              </div>
-          </div>
+                <div class="arrows">
+                  <div class="arrow-prew">←</div>
+                  <div class="arrow-next">→</div>
+                </div>
+          
           </div>
           <div class="place-item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
         </div>
-
-
-
-        <div class="place-item">
-          <div class="place-item__video">
-            <video width="100%" height="100%" controls>
-              <source src="./video/mov_bbb.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-            </video>
-            <div class="place-item__bg"></div>
-            <div class="place-item__main-block">
-              <div class="content">
-                <div class="date"> mar, 04, 2020</div>
-                <div class="title">europe</div>
-                <div class="sub-title">That was the best trip ever.</div>
-                <div class="btn">
-                  <a href="#">read more</a> 
-                </div>
-              </div>
-              <div class="arrows">
-                <div class="arrow-prew">←</div>
-                <div class="arrow-next">→</div>
-              </div>
-          </div>
-          </div>
-          <div class="place-item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-        </div>
-
-
-
 
       </div>
-
 
       <div class="section-title">
         Find talants
@@ -311,20 +300,20 @@
       $('.burger-menu span').addClass(`color${nextSlide+1}`)
     });
 
-    $(".places").slick({
+    $(".sl").slick({
       speed:1000,
       arrows:false,
-      fade:true,
+     // fade:true,
       autoplay:true
     });
-    /*
+    
     $('.arrow-prew').click(function(e){
-      $('places').slick('slickPrev');
+      $('.sl').slick('slickPrev');
     });
     $('.arrow-next').click(function(e){
-      $('places').slick('slickNext');
+      $('.sl').slick('slickNext');
     });
-    */
+    
 
 
 
@@ -338,6 +327,17 @@ function ibg(){
   }
 }
 ibg();
+
+
+
+         document.getElementsByClassName('burger-menu')[0]
+        .addEventListener('click', function (event) {
+         this.classList.toggle("active");
+         document.getElementsByTagName('body')[0].classList.toggle("lock");
+        document.getElementsByClassName('menu')[0].classList.toggle("active");
+         
+        });
+
 </script>
 </body>
 </html>

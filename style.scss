@@ -42,8 +42,16 @@ body{
 
   
 }
+.logo{
+  z-index: 1000;
+  padding: 5px 10px;
+  margin-left: -10px;
+
+  background-color: #fbfbfb;
+  border-radius: 40px;
+}
 .logo span {
-z-index: 1000;
+//z-index: 1000;
 position: relative;
   font-size: 25px;
   color: $mainColorOne;
@@ -71,17 +79,21 @@ position: relative;
    }
 }
 .burger-menu {
+ 
+  display: none;
   &:hover{
     opacity: .8;
   }
   cursor: pointer;
   position: relative;
-  z-index: 1000;
+  z-index: 4000;
   height: 32px;
   width: 32px;
   border: 1px solid rgb(167, 167, 167);
   border-radius: 50%;
     span{
+      transition: all .5s ease;
+      
      position: absolute;
       top: 14px;
       left: 6px;
@@ -89,6 +101,7 @@ position: relative;
       height: 2px;
       border-radius: 3px;
       &::before{
+        transition: all .3s ease;
         content: '';
         position: absolute;
         top: -5px;
@@ -100,6 +113,7 @@ position: relative;
 
       }
       &::after{
+        transition: all .3s ease;
         content: '';
         position: absolute;
         bottom: -5px;
@@ -196,8 +210,7 @@ position: relative;
 .sliders{
   .slick-arrow{
     cursor: pointer;
-    z-index: 2000;
-
+        z-index: 2000;
         width: 50px;
         height: 50px;
         text-align: center;
@@ -303,7 +316,7 @@ position: relative;
 .cards {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  
   height: 720px;
   align-items:center;
 }
@@ -345,15 +358,15 @@ margin-top: 40px;
   }
 }
 &__img{
- // padding-right:15px;
-  max-width: 300px;
+ padding-right:15px;
+  //max-width: 300px;
   img{
     width: 100%;
   }
 }
 &__sub-title{
   padding: 30px 15px;
-  max-width: 300px;
+ // max-width: 300px;
 
 }
 &__btn a {
@@ -394,9 +407,16 @@ margin-top: 40px;
     right: -100px;
     background-color: $mainColorOne;
     z-index: 10;
-
+    animation-name: bg_rot;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
   &__main-block{
+    -webkit-box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
+    -moz-box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
+    box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
     position: absolute;
     background-color: #2f3032;
     color: #fbfbfb;
@@ -407,11 +427,12 @@ margin-top: 40px;
     justify-content: flex-end;
     
     z-index: 10;
-    bottom: -50px;
+    bottom: -20px;
     max-width: 320px;
     right: -200px;
     .content{
       padding: 50px 30px 20px 30px;
+
     .date {
       color: $mainColorOne;
       font-weight: 700;
@@ -449,7 +470,6 @@ margin-top: 40px;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-     // height: 40px;
       text-align: center;
       color: $mainColorOne;
       font-size: 16pt;
@@ -511,8 +531,8 @@ margin-top: 40px;
 .talents-card {
   z-index: 1;
   -webkit-box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
--moz-box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
-box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
+  -moz-box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
+  box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
   width: 320px;
   .content {
     display: flex;
@@ -591,7 +611,7 @@ box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
   background: #fbfbfb;
   max-width: 1070px;
   margin: 0 auto;
-  padding: 60px 0px;
+  padding-top: 60px;
   
   .container .footer-body{
     display: flex;
@@ -624,6 +644,7 @@ box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
     }
     &__soc{
       display: block;
+      margin-bottom: 20px;
       li{
         display: inline-block;
         width: 20px;
@@ -638,6 +659,91 @@ box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
   }
 }
 
+.burger-menu.active{
+  border-color: inherit;
+}
+
+.burger-menu.active>span{
+  position: relative;
+  z-index: 3000;
+  transform:scale(0);
+  
+}
+.burger-menu.active>span::before{
+ //position: relative;
+ z-index: 3000;
+ width: 30px;
+ top:0px;
+ left:-6px;
+ transform: rotate(45deg);
+   
+}
+.burger-menu.active>span:after{
+ // position: relative;
+ z-index: 3000;
+ width: 30px;
+  top:0px;
+  left:-6px;
+  transform: rotate(-45deg);
+ 
+
+  }
+
+
+
+
+
+
+@media only screen and (max-width:500px){
+  .logo{
+
+    margin-left: 0px;
+  }
+  .menu.active{
+    left: 0;
+    overflow: auto;
+    z-index: 3900;
+   
+  }
+.lock{
+  overflow: hidden;
+}
+
+  .menu {
+    //z-index: 3900;
+    position: fixed;
+     top: 0;
+    left:-100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color:  $mainColorFont;
+    transition: all .3s ease;
+    li{
+      a{color: #fbfbfb;}
+      font-size: 20px;
+      font-weight: 600;
+      margin: 10px auto;
+    }
+  }
+  .burger-menu {
+    display: block;
+  }
+ 
+
+  .cards {
+    flex-wrap: wrap;
+    .card-item{
+      margin-left: auto;
+      margin-right: auto;
+    width: 100%;
+
+    }
+
+}
+}
+
 @media only screen and (max-width:976px){
   .place-item__bg,.place-item__description{
     display: none;
@@ -646,10 +752,13 @@ box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
   .place-item{
     height: auto;
     align-items: center;
+    overflow: hidden;
 
   &__main-block{
+    width: 100%;
+    max-width: 300px;
     position: relative;
-    margin: 0 auto;
+   // margin: 0 auto;
     top:0;
     left: 0;
   }
@@ -679,8 +788,9 @@ box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
   .cards {
     height: auto;
     .card-item{
-    width: 100%;
-
+    &__img{
+      padding-right:0px;
+     }
     }
   }
   
@@ -688,3 +798,7 @@ box-shadow: 0px 0px 20px -3px rgba(28,28,28,1);
 }
 
 
+@keyframes bg_rot {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(45deg);}
+}
